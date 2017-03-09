@@ -5,9 +5,6 @@ cache:
   - "$HOME/.ghc"
   - "$HOME/.cabal"
   - "$HOME/.stack"
-env:
-  global:
-    APP_NAME: "'Haskell Library Test APP'"
 matrix:
   include:
   - env: BUILD=cabal GHCVER=7.8.4 CABALVER=1.18 HAPPYVER=1.19.5 ALEXVER=3.1.7 RUN_TESTS=
@@ -157,7 +154,7 @@ script:
     stack)
       stack --no-terminal $ARGS test --bench --no-run-benchmarks
       ;;
-    cabal)
+<    cabal)
       cabal install --enable-tests $RUN_TESTS --enable-benchmarks --force-reinstalls --ghc-options=-O0 --reorder-goals --max-backjumps=-1 $CABALARGS $PACKAGES
 
       ORIGDIR=$(pwd)
