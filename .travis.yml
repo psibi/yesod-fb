@@ -154,7 +154,7 @@ script:
     stack)
       stack --no-terminal $ARGS test --bench --no-run-benchmarks
       ;;
-<    cabal)
+    cabal)
       cabal install --enable-tests $RUN_TESTS --enable-benchmarks --force-reinstalls --ghc-options=-O0 --reorder-goals --max-backjumps=-1 $CABALARGS $PACKAGES
 
       ORIGDIR=$(pwd)
