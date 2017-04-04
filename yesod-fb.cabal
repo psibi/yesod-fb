@@ -28,7 +28,6 @@ Library
   Build-depends:   base         >= 4.3     && < 5
                  , yesod-core   >= 1.2     && < 1.5
                  , fb           >= 1.1.0
-
                  , crypto-api
                  , http-conduit
                  , wai
