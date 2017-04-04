@@ -1,15 +1,16 @@
 Name:                yesod-fb
-Version:             0.3.4
+Version:             0.4.0
 Synopsis:            Useful glue functions between the fb library and Yesod.
-Homepage:            https://github.com/prowdsponsor/yesod-fb
+Homepage:            https://github.com/psibi/yesod-fb
 License:             BSD3
 License-file:        LICENSE
 Author:              Felipe Lessa
-Maintainer:          Felipe Lessa <felipe.lessa@gmail.com>
+Maintainer:          Sibi <sibi@psibi.in>
 Category:            Web
 Build-type:          Simple
 Cabal-version:       >= 1.6
-Extra-source-files:  README
+Extra-source-files:  README.md
+bug-reports:         https://github.com/psibi/yesod-fb/issues
 
 Description:
   This package contains useful glue functions between the fb
@@ -19,14 +20,14 @@ Description:
 
 Source-repository head
   type:     git
-  location: git://github.com/prowdsponsor/yesod-fb.git
+  location: git@github.com:psibi/yesod-fb.git
 
 Library
   hs-source-dirs: src
 
   Build-depends:   base         >= 4.3     && < 5
                  , yesod-core   >= 1.2     && < 1.5
-                 , fb           >= 0.11.1  && < 1.1
+                 , fb           >= 1.1.0
 
                  , crypto-api
                  , http-conduit
