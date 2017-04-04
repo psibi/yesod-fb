@@ -1,0 +1,8 @@
+resolver: lts-8.4
+
+# Local packages, usually specified by relative directory name
+packages:
+- '.'
+
+extra-deps:
+- fb-1.1.0
