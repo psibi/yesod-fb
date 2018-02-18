@@ -97,7 +97,7 @@ parseRealTimeUpdateNotifications = do
   case lookup "X-Hub-Signature" (W.requestHeaders waiReq) of
     Nothing  -> myFail "X-Hub-Signature not found."
     Just sig -> do
-      uncheckedData <- L.fromChunks <$> (Y.rawRequestBody C.$$ CL.consume)
+      uncheckedData <- L.fromChunks <$> (C.runConduit $ Y.rawRequestBody C..| CL.consume)
       mcheckedData <- runYesodFbT $ FB.verifyRealTimeUpdateNotifications sig uncheckedData
       case mcheckedData of
         Nothing -> myFail "Signature is invalid."
