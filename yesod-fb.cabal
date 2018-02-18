@@ -1,5 +1,5 @@
 Name:                yesod-fb
-Version:             0.4.0
+Version:             0.5.0
 Synopsis:            Useful glue functions between the fb library and Yesod.
 Homepage:            https://github.com/psibi/yesod-fb
 License:             BSD3
@@ -26,8 +26,8 @@ Library
   hs-source-dirs: src
 
   Build-depends:   base         >= 4.3     && < 5
-                 , yesod-core   >= 1.2     && < 1.5
-                 , fb           >= 1.1.0
+                 , yesod-core   >= 1.6.0
+                 , fb           >= 1.2.0
                  , crypto-api
                  , http-conduit
                  , wai
