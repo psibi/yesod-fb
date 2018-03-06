@@ -16,6 +16,7 @@ module Yesod.Facebook
 
 import Control.Applicative ((<$>))
 import Crypto.Classes (constTimeEq)
+import Network.HTTP.Client.TLS (getGlobalManager)
 import Data.ByteString.Char8 () -- IsString
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy.Char8 as L
@@ -32,12 +33,15 @@ import qualified Yesod.Core as Y
 -- | The 'YesodFacebook' class for foundation datatypes that
 -- support running 'FB.FacebookT' actions.
 class Y.Yesod site => YesodFacebook site where
+  {-#MINIMAL fbCredentials#-}
+
   -- | The credentials of your app.
   fbCredentials :: site -> FB.Credentials
 
   -- | HTTP manager used for contacting Facebook (may be the same
   -- as the one used for @yesod-auth@).
-  fbHttpManager :: site -> HTTP.Manager
+  fbHttpManager :: (Y.MonadHandler m, Y.HandlerSite m ~ site) => m HTTP.Manager
+  fbHttpManager = Y.liftIO getGlobalManager
 
   -- | Use Facebook's beta tier if @True@.  The default is @False@.
   fbUseBetaTier :: site -> Bool
@@ -60,7 +64,7 @@ runYesodFbT ::
 runYesodFbT act = do
   site <- Y.getYesod
   let creds   = fbCredentials site
-      manager = fbHttpManager site
+  manager <- fbHttpManager
   (if fbUseBetaTier site
    then FB.beta_runFacebookT
    else FB.runFacebookT) creds manager act
@@ -74,7 +78,7 @@ runNoAuthYesodFbT ::
   FB.FacebookT FB.NoAuth m a -> m a
 runNoAuthYesodFbT act = do
   site <- Y.getYesod
-  let manager = fbHttpManager site
+  manager <- fbHttpManager
   (if fbUseBetaTier site
    then FB.runNoAuthFacebookT
    else FB.beta_runNoAuthFacebookT) manager act
