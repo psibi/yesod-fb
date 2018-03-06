@@ -9,4 +9,4 @@ extra-deps:
 - conduit-extra-1.3.0
 - http-conduit-2.3.0
 - resourcet-1.2.0
-- ../fb
+- fb-1.2.0
