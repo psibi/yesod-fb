@@ -1,6 +1,7 @@
 # Version 0.5.1
 
 * Remove crypto-api dependency and move over to memory package
+* Have MonadFail constraint
 
 # Version 0.5.0
 
