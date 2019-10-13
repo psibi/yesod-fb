@@ -92,7 +92,7 @@ runNoAuthYesodFbT act = do
 -- fails (signature header not found, invalid signature, invalid
 -- JSON).
 parseRealTimeUpdateNotifications ::
-  (Y.MonadHandler m, Y.HandlerSite m ~ site, YesodFacebook site, A.FromJSON a) =>
+  (Y.MonadHandler m, Y.HandlerSite m ~ site, YesodFacebook site, A.FromJSON a, MonadFail m) =>
   m (FB.RealTimeUpdateNotification a)
 parseRealTimeUpdateNotifications = do
   let myFail = fail . ("parseRealTimeUpdateNotifications: " ++)
