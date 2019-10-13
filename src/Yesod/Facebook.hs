@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings, TypeFamilies, ScopedTypeVariables #-}
 module Yesod.Facebook
   ( -- * Running @FacebookT@ actions inside @HandlerT@
     YesodFacebook(..)
@@ -15,9 +15,9 @@ module Yesod.Facebook
   ) where
 
 import Control.Applicative ((<$>))
-import Crypto.Classes (constTimeEq)
 import Network.HTTP.Client.TLS (getGlobalManager)
 import Data.ByteString.Char8 () -- IsString
+import Data.ByteArray (convert, ScrubbedBytes)
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy.Char8 as L
 import qualified Data.Conduit as C
@@ -132,7 +132,7 @@ answerRealTimeUpdateChallenge token = do
     -- FIXME: Is hub.mode always subscribe?  Facebook's docs say
     -- so, but I don't believe them =).
     (Just "subscribe", Just hubChallenge, Just hubVerifyToken)
-      | TE.encodeUtf8 hubVerifyToken `constTimeEq` token ->
+      | (convert (TE.encodeUtf8 hubVerifyToken) :: ScrubbedBytes) == (convert token) ->
           return $ Y.RepPlain (Y.toContent hubChallenge)
     _ -> Y.notFound
 

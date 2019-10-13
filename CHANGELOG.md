@@ -1,3 +1,7 @@
+# Version 0.5.1
+
+* Remove crypto-api dependency and move over to memory package
+
 # Version 0.5.0
 
 * Change type signature of `fbHttpManager` from `site -> Manager` to `(Y.MonadHandler m, Y.HandlerSite m ~ site) => m HTTP.Manager`.
