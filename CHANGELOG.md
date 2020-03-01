@@ -1,3 +1,7 @@
+# Version 0.5.2
+
+* Fix MonadFail issue
+
 # Version 0.5.1
 
 * Remove crypto-api dependency and move over to memory package
