@@ -27,7 +27,7 @@ Library
 
   Build-depends:   base         >= 4.9.0     && < 5
                  , yesod-core   >= 1.6.0
-                 , fb           >= 1.2.0
+                 , fb           >= 2.0
                  , http-client-tls
                  , memory
                  , http-conduit >= 2.3.0

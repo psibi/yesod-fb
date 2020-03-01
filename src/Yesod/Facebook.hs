@@ -18,6 +18,7 @@ import Control.Applicative ((<$>))
 import Network.HTTP.Client.TLS (getGlobalManager)
 import Data.ByteString.Char8 () -- IsString
 import Data.ByteArray (convert, ScrubbedBytes)
+import Control.Monad.Fail
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy.Char8 as L
 import qualified Data.Conduit as C
@@ -95,7 +96,7 @@ parseRealTimeUpdateNotifications ::
   (Y.MonadHandler m, Y.HandlerSite m ~ site, YesodFacebook site, A.FromJSON a, MonadFail m) =>
   m (FB.RealTimeUpdateNotification a)
 parseRealTimeUpdateNotifications = do
-  let myFail = fail . ("parseRealTimeUpdateNotifications: " ++)
+  let myFail = Prelude.fail . ("parseRealTimeUpdateNotifications: " ++)
   -- Get request's signature.
   waiReq <- Y.waiRequest
   case lookup "X-Hub-Signature" (W.requestHeaders waiReq) of
