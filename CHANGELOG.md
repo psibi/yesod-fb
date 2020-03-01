@@ -1,3 +1,7 @@
+# Version 0.5.3
+
+* Restrict base version
+
 # Version 0.5.2
 
 * Fix MonadFail issue

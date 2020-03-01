@@ -40,17 +40,6 @@ matrix:
         - alex-3.1.7
         sources:
         - hvr-ghc
-  - env: BUILD=cabal GHCVER=8.2.2 CABALVER=2.0 HAPPYVER=1.19.5 ALEXVER=3.1.7
-    compiler: ": #GHC 8.2.2"
-    addons:
-      apt:
-        packages:
-        - cabal-install-2.0
-        - ghc-8.2.2
-        - happy-1.19.5
-        - alex-3.1.7
-        sources:
-        - hvr-ghc
   - env: BUILD=cabal GHCVER=head  CABALVER=head HAPPYVER=1.19.5 ALEXVER=3.1.7 RUN_TESTS=--run-tests
     compiler: ": #GHC HEAD"
     addons:
