@@ -1,4 +1,4 @@
-# Version 0.5.3
+# Version 0.6.0
 
 * Restrict base version for last three ghc version.
 * Update upper bounds for unliftio changes

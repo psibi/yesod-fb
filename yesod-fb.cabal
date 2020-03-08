@@ -1,5 +1,5 @@
 Name:                yesod-fb
-Version:             0.5.3
+Version:             0.6.0
 Synopsis:            Useful glue functions between the fb library and Yesod.
 Homepage:            https://github.com/psibi/yesod-fb
 License:             BSD3
@@ -27,7 +27,7 @@ Library
 
   Build-depends:   base         >= 4.11
                  , yesod-core   >= 1.6.17.3
-                 , fb           >= 2.0.1
+                 , fb           >= 2.1.0
                  , http-client-tls
                  , memory
                  , http-conduit >= 2.3.0
