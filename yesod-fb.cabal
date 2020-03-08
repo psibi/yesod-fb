@@ -25,7 +25,7 @@ Source-repository head
 Library
   hs-source-dirs: src
 
-  Build-depends:   base         >= 4.11
+  Build-depends:   base         >= 4.11 && < 5
                  , yesod-core   >= 1.6.17.3
                  , fb           >= 2.1.0
                  , http-client-tls
