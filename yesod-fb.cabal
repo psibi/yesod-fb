@@ -26,8 +26,8 @@ Library
   hs-source-dirs: src
 
   Build-depends:   base         >= 4.11
-                 , yesod-core   >= 1.6.0
-                 , fb           >= 2.0
+                 , yesod-core   >= 1.6.17.3
+                 , fb           >= 2.0.1
                  , http-client-tls
                  , memory
                  , http-conduit >= 2.3.0
