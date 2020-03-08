@@ -1,3 +1,8 @@
+# Version 0.5.3
+
+* Restrict base version for last three ghc version.
+* Update upper bounds for unliftio changes
+
 # Version 0.5.2
 
 * Fix MonadFail issue
