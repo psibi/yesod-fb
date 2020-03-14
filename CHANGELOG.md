@@ -1,3 +1,7 @@
+# Version 0.6.1
+
+* Relex constraints to use new version of fb
+
 # Version 0.6.0
 
 * Restrict base version for last three ghc version.
